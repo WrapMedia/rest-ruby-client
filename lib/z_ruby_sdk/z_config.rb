@@ -52,7 +52,7 @@ class Z_Config
 
   # return the value of the key
   def get_val(prop)
-    @properties[prop]
+    @properties[Rails.env].try(:[], prop) || @properties[prop]
   end
 
   # Use the instance method to access this object only
