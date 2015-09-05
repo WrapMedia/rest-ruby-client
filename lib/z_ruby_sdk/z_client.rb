@@ -101,9 +101,9 @@ class Z_Client
     begin
       # if we have a block, yield
       if block_given?
-        yield @z_api.exec_post_api(z_api_args.uri, z_api_args.req_body.to_hash)
+        yield @z_api.exec_post_api(z_api_args.uri, z_api_args.req_body.to_hash, z_api_args.headers.try(:to_hash))
       else
-        @z_api.exec_post_api(z_api_args.uri, z_api_args.req_body.to_hash)
+        @z_api.exec_post_api(z_api_args.uri, z_api_args.req_body.to_hash, z_api_args.headers.try(:to_hash))
       end
     rescue Exception => e
       Z_Logger.instance.log(e.message)

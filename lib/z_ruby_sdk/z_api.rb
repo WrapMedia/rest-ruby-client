@@ -91,8 +91,8 @@ class Z_API
   end
 
   # Do HTTP POST
-  def exec_post_api(uri, request_body)
-    headers = {}
+  def exec_post_api(uri, request_body, headers = nil)
+    headers ||= {}
 
     # indicate accept response body in JSON
     headers['Accept'] = 'application/json'
