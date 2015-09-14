@@ -50,6 +50,10 @@ class Z_Config
     Z_Logger.instance.log("Configuration file #{@config_file} successfully loaded.", Z_Constants::LOG_SDK)
   end
 
+  def load_overrides(properties)
+    @properties.merge! properties
+  end
+
   # return the value of the key
   def get_val(prop)
     @properties[Rails.env].try(:[], prop) || @properties[prop]
