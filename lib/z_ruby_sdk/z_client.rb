@@ -42,9 +42,9 @@ class Z_Client
     begin
       # if caller has a block, yield with response body after invocation
       if block_given?
-        yield @z_api.exec_get_api(z_api_args.uri, query_string)
+        yield @z_api.exec_get_api(z_api_args.uri, query_string, z_api_args.headers.try(:to_hash))
       else
-        @z_api.exec_get_api(z_api_args.uri, query_string)
+        @z_api.exec_get_api(z_api_args.uri, query_string, z_api_args.headers.try(:to_hash))
       end
     rescue Exception => e
       Z_Logger.instance.log(e.message)
@@ -141,9 +141,9 @@ class Z_Client
     begin
       # if the caller has a block, yield with response after invocation
       if block_given?
-        yield @z_api.exec_put_api(z_api_args.uri, z_api_args.req_body.to_hash)
+        yield @z_api.exec_put_api(z_api_args.uri, z_api_args.req_body.to_hash, z_api_args.headers.try(:to_hash))
       else
-        @z_api.exec_put_api(z_api_args.uri, z_api_args.req_body.to_hash)
+        @z_api.exec_put_api(z_api_args.uri, z_api_args.req_body.to_hash, z_api_args.headers.try(:to_hash))
       end
     rescue Exception => e
       Z_logger.instance.log(e.message)

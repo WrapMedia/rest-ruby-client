@@ -20,8 +20,8 @@ class Z_API
   end
 
   # Do HTTP GET
-  def exec_get_api(uri, query_string)    
-    headers = {}
+  def exec_get_api(uri, query_string, headers = nil)
+    headers ||= {}
 
     # indicate accept response body in JSON
     headers['Accept'] = 'application/json'
@@ -58,8 +58,8 @@ class Z_API
   end
 
   # Do HTTP PUT
-  def exec_put_api(uri, request_body)
-    headers = {}
+  def exec_put_api(uri, query_string, headers = nil)
+    headers ||= {}
 
     # indicate accept response body in JSON
     headers['Accept'] = 'application/json'
