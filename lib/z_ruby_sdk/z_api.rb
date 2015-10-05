@@ -58,7 +58,7 @@ class Z_API
   end
 
   # Do HTTP PUT
-  def exec_put_api(uri, query_string, headers = nil)
+  def exec_put_api(uri, request_body, headers = nil)
     headers ||= {}
 
     # indicate accept response body in JSON
