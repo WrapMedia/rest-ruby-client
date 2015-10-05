@@ -146,7 +146,7 @@ class Z_Client
         @z_api.exec_put_api(z_api_args.uri, z_api_args.req_body.to_hash, z_api_args.headers.try(:to_hash))
       end
     rescue Exception => e
-      Z_logger.instance.log(e.message)
+      Z_Logger.instance.log(e.message)
       Z_Logger.instance.log(e.backtrace.join("\n"))
       raise RuntimeError, "HTTP PUT Exception. Please see logs for details."
     end
